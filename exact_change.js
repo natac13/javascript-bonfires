@@ -29,11 +29,11 @@ function drawer(price, cash, cid) {
       if(change_due / string_to_number[unit[0]] >= 1) {
         var count = 0.00;
         while(change_due / string_to_number[unit[0]] >= 1 && initial_amount > 0) {
+          change_due = +(change_due).toFixed(2);
           change_due -= string_to_number[unit[0]];
           initial_amount -= string_to_number[unit[0]];
           count++;
         }
-        if(unit[0] === 'PENNY') { count++;}
         change_arr.push([unit[0], (string_to_number[unit[0]]*count)]);
         return [unit[0], initial_amount];
       } else {
